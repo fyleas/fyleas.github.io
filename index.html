@@ -401,7 +401,7 @@
                     </div>
 
                     <!-- Playlist: Panagia i Mitera tou Fotos -->
-                    <div class="video-item" style="grid-column: 1 / -1; max-width: 900px; margin: 0 auto 2rem auto;">
+                    <div class="video-item">
                         <div class="video-wrapper">
                             <iframe
                                 src="https://www.youtube.com/embed/videoseries?list=PL8Q_VyyqmnTk4WHmzWcRY1SllPQ3aVFIn"
@@ -450,10 +450,8 @@
                         </div>
                         <p class="video-caption">Πνευματική Ομιλία</p>
                     </div>
-                </div>
 
-                <!-- Local Videos Grid -->
-                <div class="video-grid" style="margin-top: 2.5rem;">
+                    <!-- Local Videos Section (Now merged into the same grid) -->
                     <div class="video-item">
                         <video controls
                             style="width: 100%; border-radius: 12px 12px 0 0; display: block; background: #000;">
@@ -484,41 +482,43 @@
                         </video>
                         <p class="video-caption">Στιγμές από το Άγιον Όρος #3</p>
                     </div>
-                    <!-- Suggested Channels -->
-                    <div style="margin-top: 4rem; text-align: center;">
-                        <div class="section-header" style="margin-bottom: 2rem;">
-                            <h3
-                                style="font-family: 'MedievalManuscript', var(--font-serif); font-size: 1.8rem; color: var(--color-gold);">
-                                Προτεινόμενα Κανάλια</h3>
-                        </div>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
-                            <!-- Channel 1: Agioritikessintages -->
-                            <a href="https://youtube.com/@agioritikessintages?si=q1pi9f1GaM9CZ24C" target="_blank"
-                                style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem 2rem; background: var(--color-surface); border: 1px solid rgba(201,168,76,0.3); border-radius: 50px; text-decoration: none; transition: all 0.3s ease; min-width: 300px;">
-                                <span style="font-size: 1.5rem;">🍳</span>
-                                <div style="text-align: left;">
-                                    <span
-                                        style="display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gold-dark);">Συνταγές</span>
-                                    <span
-                                        style="display: block; font-family: 'MedievalManuscript', var(--font-serif); font-size: 1.2rem; color: var(--color-text);">Αγιορείτικες
-                                        Συνταγές</span>
-                                </div>
-                            </a>
-                            <!-- Channel 2: Ecumenical Patriarchate -->
-                            <a href="https://youtube.com/@ecumenicalpatriarchate?si=P4aU1gxPVBYGBRaG" target="_blank"
-                                style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem 2rem; background: var(--color-surface); border: 1px solid rgba(201,168,76,0.3); border-radius: 50px; text-decoration: none; transition: all 0.3s ease; min-width: 300px;">
-                                <span style="font-size: 1.5rem;">🏛️</span>
-                                <div style="text-align: left;">
-                                    <span
-                                        style="display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gold-dark);">Εκκλησία</span>
-                                    <span
-                                        style="display: block; font-family: 'MedievalManuscript', var(--font-serif); font-size: 1.2rem; color: var(--color-text);">Οικουμενικό
-                                        Πατριαρχείο</span>
-                                </div>
-                            </a>
-                        </div>
+                </div>
+
+                <!-- Suggested Channels -->
+                <div style="margin-top: 4rem; text-align: center;">
+                    <div class="section-header" style="margin-bottom: 2rem;">
+                        <h3
+                            style="font-family: 'MedievalManuscript', var(--font-serif); font-size: 1.8rem; color: var(--color-gold);">
+                            Προτεινόμενα Κανάλια</h3>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+                        <!-- Channel 1: Ecumenical Patriarchate -->
+                        <a href="https://youtube.com/@ecumenicalpatriarchate?si=P4aU1gxPVBYGBRaG" target="_blank"
+                            style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem 2rem; background: var(--color-surface); border: 1px solid rgba(201,168,76,0.3); border-radius: 50px; text-decoration: none; transition: all 0.3s ease; min-width: 300px;">
+                            <span style="font-size: 1.5rem;">🏛️</span>
+                            <div style="text-align: left;">
+                                <span
+                                    style="display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gold-dark);">Εκκλησία</span>
+                                <span
+                                    style="display: block; font-family: 'MedievalManuscript', var(--font-serif); font-size: 1.2rem; color: var(--color-text);">Οικουμενικό
+                                    Πατριαρχείο</span>
+                            </div>
+                        </a>
+                        <!-- Channel 2: Agioritikessintages -->
+                        <a href="https://youtube.com/@agioritikessintages?si=q1pi9f1GaM9CZ24C" target="_blank"
+                            style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem 2rem; background: var(--color-surface); border: 1px solid rgba(201,168,76,0.3); border-radius: 50px; text-decoration: none; transition: all 0.3s ease; min-width: 300px;">
+                            <span style="font-size: 1.5rem;">🍳</span>
+                            <div style="text-align: left;">
+                                <span
+                                    style="display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gold-dark);">Συνταγές</span>
+                                <span
+                                    style="display: block; font-family: 'MedievalManuscript', var(--font-serif); font-size: 1.2rem; color: var(--color-text);">Αγιορείτικες
+                                    Συνταγές</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
+            </div>
         </section>
 
         <!-- YouTube Posts Section -->
