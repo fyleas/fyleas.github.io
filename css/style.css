@@ -859,3 +859,50 @@ body {
         /* Convert shorts to 16:9 on small mobile if needed, or keep 9:16? Actually 9:16 is better for shorts. But they might be too wide. */
     }
 }
+
+/* Helper for Medieval Font in paragraphs */
+.font-medieval {
+    font-family: 'MedievalManuscript', var(--font-serif);
+    font-size: 1.25em;
+    color: var(--color-gold-light);
+    vertical-align: middle;
+}
+
+.monastery-contact {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(201, 168, 76, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+}
+
+.contact-link {
+    color: var(--color-gold-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.contact-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(201, 168, 76, 0.5);
+}
+
+.skete-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* Footer contact refinement */
+.footer-contact a {
+    transition: color 0.3s;
+}
+
+.footer-contact a:hover {
+    color: #fff !important;
+}
