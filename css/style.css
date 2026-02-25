@@ -7,6 +7,13 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'MedievalManuscript';
+    src: url('BK-medievalmanuscript.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --color-bg: #0d0d0d;
     --color-bg-alt: #141418;
@@ -97,9 +104,9 @@ body {
 }
 
 .hero-title {
-    font-family: var(--font-serif);
+    font-family: 'MedievalManuscript', var(--font-serif);
     font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 700;
+    font-weight: normal;
     color: var(--color-text);
     letter-spacing: 0.02em;
     line-height: 1.1;
@@ -185,11 +192,11 @@ body {
 }
 
 .nav-logo {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
+    font-family: 'MedievalManuscript', var(--font-serif);
+    font-size: 1.3rem;
     color: var(--color-gold);
     text-decoration: none;
-    font-weight: 700;
+    font-weight: normal;
 }
 
 .nav-links {
@@ -249,9 +256,9 @@ body {
 }
 
 .section-header h2 {
-    font-family: var(--font-serif);
+    font-family: 'MedievalManuscript', var(--font-serif);
     font-size: clamp(1.8rem, 4vw, 2.5rem);
-    font-weight: 700;
+    font-weight: normal;
     color: var(--color-text);
     margin-bottom: 0.75rem;
 }
@@ -311,8 +318,8 @@ body {
 }
 
 .info-card h3 {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
+    font-family: 'MedievalManuscript', var(--font-serif);
+    font-size: 1.25rem;
     color: var(--color-gold-light);
     margin-bottom: 1.25rem;
 }
@@ -583,7 +590,7 @@ body {
 }
 
 .monastery-card h3 {
-    font-family: var(--font-serif);
+    font-family: 'MedievalManuscript', var(--font-serif);
     font-size: 1.05rem;
     color: var(--color-text);
     margin-bottom: 0.4rem;
@@ -638,8 +645,8 @@ body {
 }
 
 .footer-text {
-    font-family: var(--font-serif);
-    font-size: 1rem;
+    font-family: 'MedievalManuscript', var(--font-serif);
+    font-size: 1.2rem;
     color: var(--color-gold);
     margin-bottom: 0.5rem;
 }
