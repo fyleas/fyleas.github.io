@@ -640,19 +640,6 @@
                             </a>
                         </div>
                     </div>
-                    <!-- App 2: Vimatarissa -->
-                    <div class="app-card">
-                        <div class="app-card-icon">🙏</div>
-                        <h3>Βηματάρισσα</h3>
-                        <p>Εφαρμογή αφιερωμένη στην Παναγία τη Βηματάρισσα, με παρακλητικούς κανόνες και πνευματικό
-                            υλικό της Μονής Βατοπαιδίου.</p>
-                        <div class="app-links">
-                            <a href="https://play.google.com/store/apps/details?id=tv.pemptousia.vimatarissa"
-                                target="_blank" class="app-link-btn google-play">
-                                <span>Play Store</span>
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -905,21 +892,7 @@
             }
         });
 
-        // Soft Autoplay: Play on first interaction with the document
-        const startAudio = () => {
-            if (bgMusic.paused) {
-                bgMusic.play().then(() => {
-                    updateMusicUI();
-                    document.removeEventListener('click', startAudio);
-                    document.removeEventListener('touchstart', startAudio);
-                }).catch(error => {
-                    console.log("Autoplay prevented:", error);
-                });
-            }
-        };
 
-        document.addEventListener('click', startAudio);
-        document.addEventListener('touchstart', startAudio);
     </script>
 
 </body>
