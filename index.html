@@ -885,15 +885,12 @@
     </script>
 
     <!-- Background Music -->
-    <audio id="bgMusic" loop src="audio/eksomologhste.mp3"></audio>
+    <audio id="bgMusic" loop src="audio/eksomologhste.mp3" preload="auto"></audio>
     <button id="musicToggle" class="music-toggle" title="Αναπαραγωγή/Παύση μουσικής">🎵</button>
 
     <script>
         const bgMusic = document.getElementById('bgMusic');
         const musicToggle = document.getElementById('musicToggle');
-
-        // Set start time to 4 seconds
-        bgMusic.currentTime = 4;
 
         function updateMusicUI() {
             if (bgMusic.paused) {
