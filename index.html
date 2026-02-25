@@ -892,17 +892,45 @@
         const bgMusic = document.getElementById('bgMusic');
         const musicToggle = document.getElementById('musicToggle');
 
-        musicToggle.addEventListener('click', () => {
+        // Set start time to 4 seconds
+        bgMusic.currentTime = 4;
+
+        function updateMusicUI() {
             if (bgMusic.paused) {
-                bgMusic.play();
-                musicToggle.classList.add('playing');
-                musicToggle.innerHTML = '🔊';
-            } else {
-                bgMusic.pause();
                 musicToggle.classList.remove('playing');
                 musicToggle.innerHTML = '🎵';
+            } else {
+                musicToggle.classList.add('playing');
+                musicToggle.innerHTML = '🔊';
+            }
+        }
+
+        musicToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent document click from firing
+            if (bgMusic.paused) {
+                bgMusic.playContents = true;
+                bgMusic.play().then(updateMusicUI);
+            } else {
+                bgMusic.pause();
+                updateMusicUI();
             }
         });
+
+        // Soft Autoplay: Play on first interaction with the document
+        const startAudio = () => {
+            if (bgMusic.paused) {
+                bgMusic.play().then(() => {
+                    updateMusicUI();
+                    document.removeEventListener('click', startAudio);
+                    document.removeEventListener('touchstart', startAudio);
+                }).catch(error => {
+                    console.log("Autoplay prevented:", error);
+                });
+            }
+        };
+
+        document.addEventListener('click', startAudio);
+        document.addEventListener('touchstart', startAudio);
     </script>
 
 </body>
