@@ -649,39 +649,6 @@ body {
     color: var(--color-text-muted);
 }
 
-/* ===== UPLOAD AREA ===== */
-.upload-area {
-    border: 2px dashed rgba(201, 168, 76, 0.25);
-    border-radius: 16px;
-    padding: 3rem 2rem;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color 0.3s, background 0.3s;
-    margin-bottom: 2.5rem;
-    background: rgba(201, 168, 76, 0.02);
-}
-
-.upload-area:hover,
-.upload-area.drag-over {
-    border-color: var(--color-gold);
-    background: rgba(201, 168, 76, 0.06);
-}
-
-.upload-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-}
-
-.upload-text {
-    font-size: 1rem;
-    color: var(--color-text);
-    margin-bottom: 0.4rem;
-}
-
-.upload-hint {
-    font-size: 0.82rem;
-    color: var(--color-text-muted);
-}
 
 /* ===== GALLERY GRID ===== */
 .gallery-grid {
@@ -736,25 +703,6 @@ body {
     max-width: 70%;
 }
 
-.gallery-item-delete {
-    background: rgba(180, 50, 50, 0.8);
-    border: none;
-    color: white;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    font-size: 0.85rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-    flex-shrink: 0;
-}
-
-.gallery-item-delete:hover {
-    background: rgba(220, 50, 50, 1);
-}
 
 .gallery-empty {
     text-align: center;

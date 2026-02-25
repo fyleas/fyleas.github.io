@@ -40,6 +40,7 @@
                 <li><a href="#about">Ποιοι Είμαστε</a></li>
                 <li><a href="#athos">Άγιον Όρος</a></li>
                 <li><a href="#monasteries">Μοναστήρια</a></li>
+                <li><a href="#spiritual">Πνευματική Ενίσχυση</a></li>
                 <li><a href="#gallery">Φωτογραφίες</a></li>
                 <li><a href="#access">Επίσκεψη</a></li>
             </ul>
@@ -351,29 +352,21 @@
         <section class="content-section alt-bg" id="gallery">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-number">04</span>
+                    <span class="section-number">05</span>
                     <h2>Φωτογραφίες</h2>
                     <div class="section-line"></div>
                 </div>
-                <p class="section-intro">Στιγμές από τα προσκυνήματά μας. Ανεβάστε τις δικές σας φωτογραφίες για να
-                    μοιραστείτε τις εμπειρίες σας με την ομάδα.</p>
-
-                <!-- Upload Area -->
-                <div class="upload-area" id="uploadArea">
-                    <div class="upload-icon">📷</div>
-                    <p class="upload-text">Σύρετε φωτογραφίες εδώ ή κάντε κλικ για να επιλέξετε</p>
-                    <p class="upload-hint">Υποστηριζόμενοι τύποι: JPG, PNG, WebP</p>
-                    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple hidden>
-                </div>
+                <p class="section-intro">Στιγμές από τα προσκυνήματά μας και πνευματικές απεικονίσεις που εκφράζουν την
+                    πίστη και την παράδοσή μας.</p>
 
                 <!-- Gallery Grid -->
                 <div class="gallery-grid" id="galleryGrid">
-                    <!-- Photos will be added here dynamically -->
+                    <!-- Photos will be added here dynamically via JS (static list) -->
                 </div>
 
-                <!-- Empty state -->
-                <div class="gallery-empty" id="galleryEmpty">
-                    <p>Δεν υπάρχουν φωτογραφίες ακόμα. Ανεβάστε τις πρώτες!</p>
+                <!-- Empty state (hidden if photos exist) -->
+                <div class="gallery-empty" id="galleryEmpty" style="display: none;">
+                    <p>Οι φωτογραφίες φορτώνονται...</p>
                 </div>
             </div>
         </section>
@@ -382,7 +375,7 @@
         <section class="content-section" id="access">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-number">05</span>
+                    <span class="section-number">06</span>
                     <h2>Επίσκεψη στο Άγιον Όρος</h2>
                     <div class="section-line"></div>
                 </div>
@@ -481,30 +474,30 @@
         }, observerOptions);
         document.querySelectorAll('.content-section, .quote-section').forEach(s => observer.observe(s));
 
-        // ===== Photo Gallery =====
-        const uploadArea = document.getElementById('uploadArea');
-        const fileInput = document.getElementById('fileInput');
+        // ===== Photo Gallery (Στατική Συλλογή) =====
         const galleryGrid = document.getElementById('galleryGrid');
         const galleryEmpty = document.getElementById('galleryEmpty');
-        let photos = []; // { src, name }
+
+        // Λίστα φωτογραφιών από το φάκελο photos/
+        const photos = [
+            { src: 'photos/eagle_emblem.jpg', name: 'Δικέφαλος Αετός' },
+            { src: 'photos/icxc_cross.jpg', name: 'ΙΣ ΧΣ ΝΙΚΑ' },
+            { src: 'photos/greek_flag.jpg', name: 'Ελληνική Σημαία' },
+            { src: 'photos/cross_nails.jpg', name: 'Σταυρός από Καρφιά' },
+            { src: 'photos/monastery_flags.jpg', name: 'Σημαίες στο Άγιον Όρος' }
+        ];
         let currentPhotoIndex = -1;
 
-        // Load saved photos from localStorage
         function loadPhotos() {
-            const saved = localStorage.getItem('agioreitiko_photos');
-            if (saved) {
-                photos = JSON.parse(saved);
-                photos.forEach((photo, index) => addPhotoToGrid(photo, index));
-                updateEmptyState();
-            }
-        }
-
-        function savePhotos() {
-            localStorage.setItem('agioreitiko_photos', JSON.stringify(photos));
+            galleryGrid.innerHTML = '';
+            photos.forEach((photo, index) => addPhotoToGrid(photo, index));
+            updateEmptyState();
         }
 
         function updateEmptyState() {
-            galleryEmpty.style.display = photos.length === 0 ? 'block' : 'none';
+            if (galleryEmpty) {
+                galleryEmpty.style.display = photos.length === 0 ? 'block' : 'none';
+            }
         }
 
         function addPhotoToGrid(photo, index) {
@@ -514,61 +507,11 @@
                 <img src="${photo.src}" alt="${photo.name}" loading="lazy">
                 <div class="gallery-item-overlay">
                     <span class="gallery-item-name">${photo.name}</span>
-                    <button class="gallery-item-delete" data-index="${index}" title="Διαγραφή">✕</button>
                 </div>
             `;
-            item.querySelector('img').addEventListener('click', () => openLightbox(index));
-            item.querySelector('.gallery-item-delete').addEventListener('click', (e) => {
-                e.stopPropagation();
-                deletePhoto(index);
-            });
+            item.addEventListener('click', () => openLightbox(index));
             galleryGrid.appendChild(item);
         }
-
-        function deletePhoto(index) {
-            photos.splice(index, 1);
-            savePhotos();
-            refreshGallery();
-        }
-
-        function refreshGallery() {
-            galleryGrid.innerHTML = '';
-            photos.forEach((photo, index) => addPhotoToGrid(photo, index));
-            updateEmptyState();
-        }
-
-        function handleFiles(files) {
-            Array.from(files).forEach(file => {
-                if (!file.type.startsWith('image/')) return;
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const photo = { src: e.target.result, name: file.name };
-                    photos.push(photo);
-                    addPhotoToGrid(photo, photos.length - 1);
-                    savePhotos();
-                    updateEmptyState();
-                };
-                reader.readAsDataURL(file);
-            });
-        }
-
-        // Click to upload
-        uploadArea.addEventListener('click', () => fileInput.click());
-        fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
-
-        // Drag & Drop
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('drag-over');
-        });
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('drag-over');
-        });
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('drag-over');
-            handleFiles(e.dataTransfer.files);
-        });
 
         // ===== Lightbox =====
         const lightbox = document.getElementById('lightbox');
