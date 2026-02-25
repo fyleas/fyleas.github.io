@@ -1043,6 +1043,12 @@ body {
 }
 
 /* ===== APPS SECTION ===== */
+@media (min-width: 1025px) {
+    #apps {
+        display: none !important;
+    }
+}
+
 .app-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -1117,11 +1123,7 @@ body {
     border: 1px solid rgba(201, 168, 76, 0.3);
 }
 
-.app-link-btn.app-store {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--color-text);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
 
 .app-link-btn:hover {
     background: var(--color-gold);
