@@ -428,6 +428,125 @@ body {
     letter-spacing: 0.02em;
 }
 
+/* ===== SPIRITUAL SECTION ===== */
+.spiritual-intro {
+    max-width: 750px;
+    margin-bottom: 3.5rem;
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+}
+
+.quotes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+.quote-card {
+    background: var(--color-surface);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 12px;
+    padding: 2.2rem;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(201, 168, 76, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.quote-card::before {
+    content: '“';
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    color: rgba(201, 168, 76, 0.1);
+    line-height: 1;
+}
+
+.quote-card-header {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold-dark);
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.quote-text {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* Video Section */
+.video-section-header {
+    margin-bottom: 2.5rem;
+    border-left: 3px solid var(--color-gold);
+    padding-left: 1.5rem;
+}
+
+.video-section-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    color: var(--color-text);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.video-item {
+    background: var(--color-surface);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    background: #000;
+}
+
+.video-item.large .video-wrapper {
+    padding-bottom: 56.25%;
+    /* 16:9 */
+}
+
+.video-item.short .video-wrapper {
+    padding-bottom: 177.77%;
+    /* 9:16 approx for shorts */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-caption {
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-align: center;
+}
+
 /* ===== MONASTERY GRID ===== */
 .monastery-grid {
     display: grid;
@@ -774,5 +893,14 @@ body {
 
     .gallery-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-item.short .video-wrapper {
+        padding-bottom: 56.25%;
+        /* Convert shorts to 16:9 on small mobile if needed, or keep 9:16? Actually 9:16 is better for shorts. But they might be too wide. */
     }
 }
