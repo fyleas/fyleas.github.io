@@ -974,6 +974,47 @@ body {
     gap: 0.5rem;
 }
 
-.post-card:hover .post-card-link {
-    color: var(--color-gold-light);
+/* ===== MUSIC TOGGLE ===== */
+.music-toggle {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 1001;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(13, 13, 13, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    background: var(--color-gold);
+    color: var(--color-bg);
+}
+
+.music-toggle.playing {
+    animation: pulse-gold 2s infinite;
+}
+
+@keyframes pulse-gold {
+    0% {
+        box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(201, 168, 76, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
+    }
 }

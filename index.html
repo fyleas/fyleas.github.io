@@ -803,6 +803,27 @@
         loadPhotos();
     </script>
 
+    <!-- Background Music -->
+    <audio id="bgMusic" loop src="audio/eksomologhste.mp3"></audio>
+    <button id="musicToggle" class="music-toggle" title="Αναπαραγωγή/Παύση μουσικής">🎵</button>
+
+    <script>
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggle = document.getElementById('musicToggle');
+
+        musicToggle.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicToggle.classList.add('playing');
+                musicToggle.innerHTML = '🔊';
+            } else {
+                bgMusic.pause();
+                musicToggle.classList.remove('playing');
+                musicToggle.innerHTML = '🎵';
+            }
+        });
+    </script>
+
 </body>
 
 </html>
