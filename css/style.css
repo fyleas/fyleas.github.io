@@ -511,7 +511,7 @@ body {
 
 .video-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
     align-items: start;
 }
@@ -526,18 +526,12 @@ body {
 .video-wrapper {
     position: relative;
     width: 100%;
+    padding-bottom: 56.25%;
+    /* 16:9 */
     background: #000;
 }
 
-.video-item.large .video-wrapper {
-    padding-bottom: 56.25%;
-    /* 16:9 */
-}
 
-.video-item.short .video-wrapper {
-    padding-bottom: 177.77%;
-    /* 9:16 approx for shorts */
-}
 
 .video-wrapper iframe {
     position: absolute;
